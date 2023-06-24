@@ -86,6 +86,10 @@ Image available on Docker Hub: [image]([https://platform.openai.com/docs/models/
 ```
 
 
+![image](https://github.com/vitalybibikov/biqquery-langchain-rest/assets/7008739/c624622f-6313-4294-bee7-e0bd7f576bc8)
+
+
+
 ## How to Run the Application Using Docker Compose
 
 **Create a .env file**: The application expects to find certain environment variables that are not included in the repository for security reasons. 
