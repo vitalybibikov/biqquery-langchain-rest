@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "6000:8080"
+    volumes:
+      - .:/app
+    restart: always
+    env_file:
+      - .env
+
+
+networks:
+  langchain-simple-rest:
+    driver: bridge

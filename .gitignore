@@ -1,0 +1,33 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+venv/
+.env
+
+# Logs
+*.log
+
+# Dependency directories
+env/
+lib/
+libs/
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Others
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+service-account-key.json
+
+# Environment file
+.env

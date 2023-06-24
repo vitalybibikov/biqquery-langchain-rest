@@ -1,0 +1,13 @@
+# Ignore Docker specific files and directories
+.dockerignore
+.docker/
+docker-compose.yml
+Dockerfile
+
+# Ignore development and test files
+dev/
+test/
+
+# Ignore version control files
+.git/
+.gitignore

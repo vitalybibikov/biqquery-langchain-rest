@@ -1,0 +1,11 @@
+langchain
+openai
+chromadb
+tiktoken
+tabulate
+sqlalchemy
+sqlalchemy-bigquery
+google-cloud-bigquery
+flask
+gunicorn
+BeautifulSoup4
