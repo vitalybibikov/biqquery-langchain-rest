@@ -71,7 +71,7 @@ Create a `.env` file in the root directory of the project, and fill it with the 
 
   ```bash
     docker-compose up --build
-    ```
+  ```
     
 The api starts using port 6000 by default.
 
@@ -85,7 +85,7 @@ Here's an example of how to send a request to the API using `curl` in the comman
 
 ```bash
 curl -X POST http://localhost:6000/execute -H "Content-Type: application/json" -d '{"query": "Create a query to get the number of users who have deposited money for the last 7 days from MY_BIGQUERY_TABLE_NAME table"}'
-````
+```
 
 
 Or if you're using Python's requests library, it might look like this:
