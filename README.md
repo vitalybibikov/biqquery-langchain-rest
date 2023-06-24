@@ -1,5 +1,9 @@
 # LangChain and GPT Powered Chat with BigQuery: Detailed Instructions
 
+This is an example application that utilizes ChatGPT-like models using langchain [Langchain documentation]([https://example.com/documentation](https://github.com/hwchase17/langchain))
+
+In this example, there is an API in Python, that accepts POST query with text, connects to Big Query and returns the result, processed by GhatGPT model you have specified.
+
 This walkthrough provides step-by-step instructions for building a solution that enables chatting with Google's BigQuery service. 
 
 ## Before You Begin
