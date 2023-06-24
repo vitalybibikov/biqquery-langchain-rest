@@ -65,7 +65,7 @@ Open AI API model description: [official documentation](https://platform.openai.
 
 In order to use OpenAI's models, you will need to obtain an API key. Here's a step-by-step guide on how to get it:
 
-1. **Create an OpenAI Account**: Go to [OpenAI's website](https://www.openai.com/) and create an account if you don't already have one.
+1. **Create an OpenAI Account**: Go to [OpenAI's website](https://platform.openai.com/account/api-keys) and create an account if you don't already have one.
 
 2. **Dashboard Access**: Once you've signed up and logged in, navigate to the dashboard. The dashboard is typically accessible from the user menu.
 
@@ -74,6 +74,9 @@ In order to use OpenAI's models, you will need to obtain an API key. Here's a st
 4. **Generate and Copy**: Follow the instructions to generate a new key. Once the key is generated, be sure to copy it and keep it secure. This key provides the necessary authentication to interact with OpenAI's models.
 
 Please remember, this API key is sensitive information and should be kept secure. Don't expose it in public repositories or share it with unauthorized individuals.
+
+
+![image](https://github.com/vitalybibikov/biqquery-langchain-rest/assets/7008739/cf0b6cea-3086-4a5a-a05d-05ba45ffb70b)
 
 
 
