@@ -73,7 +73,7 @@ To interact with the API, you need to send a POST request to the `/execute` endp
 Here's an example of how to send a request to the API using `curl` in the command line:
 
 ```bash
-curl -X POST http://localhost:5000/execute -H "Content-Type: application/json" -d '{"query": "Create a query to get the number of users who have deposited money for the last 7 days from MY_BIGQUERY_TABLE_NAME table"}'
+curl -X POST http://localhost:6000/execute -H "Content-Type: application/json" -d '{"query": "Create a query to get the number of users who have deposited money for the last 7 days from MY_BIGQUERY_TABLE_NAME table"}'
 ````
 
 
@@ -81,7 +81,7 @@ Or if you're using Python's requests library, it might look like this:
 ```
 import requests
 
-url = "http://localhost:5000/execute"
+url = "http://localhost:6000/execute"
 data = {
     "query": "Create a query to get the number of users who have deposited money for the last 7 days from fact__depositsuccess table"
 }
