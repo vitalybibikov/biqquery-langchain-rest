@@ -76,6 +76,16 @@ In order to use OpenAI's models, you will need to obtain an API key. Here's a st
 Please remember, this API key is sensitive information and should be kept secure. Don't expose it in public repositories or share it with unauthorized individuals.
 
 
+
+### Docker HUB
+
+Image available on Docker Hub: [image]([https://platform.openai.com/docs/models/gpt-3-5](https://hub.docker.com/r/bibikovvitaly/langchain-bigquery-rest))
+
+```
+   docker pull bibikovvitaly/langchain-bigquery-rest
+```
+
+
 ## How to Run the Application Using Docker Compose
 
 **Create a .env file**: The application expects to find certain environment variables that are not included in the repository for security reasons. 
