@@ -64,6 +64,17 @@ In order to use OpenAI's models, you will need to obtain an API key. Here's a st
 Please remember, this API key is sensitive information and should be kept secure. Don't expose it in public repositories or share it with unauthorized individuals.
 
 
+## How to Run the Application Using Docker Compose
+
+**Create a .env file**: The application expects to find certain environment variables that are not included in the repository for security reasons. 
+Create a `.env` file in the root directory of the project, and fill it with the necessary values, such as your OpenAI API key, Google Cloud credentials, and other necessary variables as described earlier in this document.
+
+  ```bash
+    docker-compose up --build
+    ```
+    
+The api starts using port 6000 by default.
+
 ## How to Use the API
 
 To interact with the API, you need to send a POST request to the `/execute` endpoint. The body of the request should be a JSON object with a `query` field. The value of the `query` field should be a natural language query that you want the model to interpret and execute against the BigQuery dataset.
