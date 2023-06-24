@@ -147,7 +147,7 @@ import requests
 
 url = "http://localhost:6000/execute"
 data = {
-    "query": "Create a query to get the number of users who have deposited money for the last 7 days from fact__depositsuccess table"
+    "query": "Create a query to get the number of users who have deposited money for the last 7 days from some_table table"
 }
 response = requests.post(url, json=data)
 print(response.json())
