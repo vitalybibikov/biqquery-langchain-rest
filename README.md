@@ -1,4 +1,4 @@
-# LangChain and GPT Powered Chat with BigQuery: Detailed Instructions
+# LangChain and GPT Powered Chat with BigQuery REST API using docker and Docker compose
 
 This is an example application that utilizes ChatGPT-like models using langchain [Langchain documentation](https://github.com/hwchase17/langchain)
 
