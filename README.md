@@ -69,6 +69,22 @@ Please remember, this API key is sensitive information and should be kept secure
 **Create a .env file**: The application expects to find certain environment variables that are not included in the repository for security reasons. 
 Create a `.env` file in the root directory of the project, and fill it with the necessary values, such as your OpenAI API key, Google Cloud credentials, and other necessary variables as described earlier in this document.
 
+## Example .env file
+
+The application relies on a number of environment variables. These should be set in a `.env` file in the root directory of your project. Here's an example of what this file might look like:
+
+```env
+SERVICE_ACCOUNT_FILE=./path-to-your-service-account.json
+PROJECT=your-google-cloud-project-id
+DATASET=your-bigquery-dataset
+OPENAI_API_KEY=your-openai-api-key
+MODEL=gpt-3.5-turbo-16k
+TOP_K=1000
+DEBUG=False
+LANGCHAIN_VERBOSE=True
+REQUEST_TIMEOUT=90
+```
+
   ```bash
     docker-compose up --build
   ```
