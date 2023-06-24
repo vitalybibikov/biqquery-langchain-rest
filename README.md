@@ -23,6 +23,8 @@ The following steps will guide you through the process of authentication:
 2. The final step involves downloading a JSON key related to your service account.
 
 
+
+
 ## Environment Variables
 
 The script uses the following environment variables, which need to be set for successful execution:
@@ -47,6 +49,12 @@ The script uses the following environment variables, which need to be set for su
 
 Please ensure to replace the actual values in the environment variables with your own before running the script.
 
+
+## Open AI API limitations and description: (MODEL ENV String)
+
+Open AI API model description: [official documentation](https://example.com/documentation)
+
+![image](https://github.com/vitalybibikov/biqquery-langchain-rest/assets/7008739/b5398e3c-d717-406a-b58f-341957dbfcf2)
 
 
 ## How to Obtain OpenAI API Key
