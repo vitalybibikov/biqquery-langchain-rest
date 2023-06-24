@@ -46,3 +46,34 @@ The script uses the following environment variables, which need to be set for su
 9. `REQUEST_TIMEOUT`: The maximum time in seconds that the application will wait for a request to be processed before it times out.
 
 Please ensure to replace the actual values in the environment variables with your own before running the script.
+
+
+
+## How to Obtain OpenAI API Key
+
+In order to use OpenAI's models, you will need to obtain an API key. Here's a step-by-step guide on how to get it:
+
+1. **Create an OpenAI Account**: Go to [OpenAI's website](https://www.openai.com/) and create an account if you don't already have one.
+
+2. **Dashboard Access**: Once you've signed up and logged in, navigate to the dashboard. The dashboard is typically accessible from the user menu.
+
+3. **API Key**: In the dashboard, look for an option to generate an API key. If it's your first time, you might need to create a new key.
+
+4. **Generate and Copy**: Follow the instructions to generate a new key. Once the key is generated, be sure to copy it and keep it secure. This key provides the necessary authentication to interact with OpenAI's models.
+
+Please remember, this API key is sensitive information and should be kept secure. Don't expose it in public repositories or share it with unauthorized individuals.
+
+
+## How to Use the API
+
+To interact with the API, you need to send a POST request to the `/execute` endpoint. The body of the request should be a JSON object with a `query` field. The value of the `query` field should be a natural language query that you want the model to interpret and execute against the BigQuery dataset.
+
+### Example Request:
+
+Here's an example of how to send a request to the API using `curl` in the command line:
+
+```bash
+curl -X POST http://localhost:5000/execute -H "Content-Type: application/json" -d '{"query": "Create a query to get the number of users who have deposited money for the last 7 days from fact__depositsuccess table"}'
+````
+
+
