@@ -1,6 +1,6 @@
 # LangChain and GPT Powered Chat with BigQuery: Detailed Instructions
 
-This is an example application that utilizes ChatGPT-like models using langchain [Langchain documentation]([https://example.com/documentation](https://github.com/hwchase17/langchain)
+This is an example application that utilizes ChatGPT-like models using langchain [Langchain documentation](https://github.com/hwchase17/langchain)
 
 In this example, there is an API in Python, that accepts POST query with text, connects to Big Query and returns the result, processed by GhatGPT model you have specified.
 
@@ -56,7 +56,7 @@ Please ensure to replace the actual values in the environment variables with you
 
 ## Open AI API limitations and description: (MODEL ENV String)
 
-Open AI API model description: [official documentation](https://example.com/documentation)
+Open AI API model description: [official documentation](https://platform.openai.com/docs/models/gpt-3-5)
 
 ![image](https://github.com/vitalybibikov/biqquery-langchain-rest/assets/7008739/b5398e3c-d717-406a-b58f-341957dbfcf2)
 
