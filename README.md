@@ -21,3 +21,28 @@ The following steps will guide you through the process of authentication:
    - BigQuery Job User
 
 2. The final step involves downloading a JSON key related to your service account.
+
+
+## Environment Variables
+
+The script uses the following environment variables, which need to be set for successful execution:
+
+1. `SERVICE_ACCOUNT_FILE`: The path to your Google Cloud service account key file. This key file provides the necessary credentials for the script to interact with your BigQuery service.
+
+2. `PROJECT`: The ID of your Google Cloud project where your BigQuery service is hosted.
+
+3. `DATASET`: The specific dataset in BigQuery that you want to query.
+
+4. `OPENAI_API_KEY`: Your OpenAI API key, which is necessary for the script to interact with the OpenAI GPT models.
+
+5. `MODEL`: The specific model provided by OpenAI that you want to use.
+
+6. `TOP_K`: A parameter for the language model that specifies the number of results to consider when predicting the next token.
+
+7. `DEBUG`: Specifies whether to run the Flask application in debug mode.
+
+8. `LANGCHAIN_VERBOSE`: This variable sets the verbosity of the LangChain agent executor. If true, the executor will provide more detailed logs of its operations.
+
+9. `REQUEST_TIMEOUT`: The maximum time in seconds that the application will wait for a request to be processed before it times out.
+
+Please ensure to replace the actual values in the environment variables with your own before running the script.
