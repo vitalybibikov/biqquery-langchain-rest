@@ -1,7 +1,7 @@
 import os
 import sys
 import io
-import app.print_format as pf
+import app.utils as myutils
 
 from flask import Flask, request, jsonify, render_template, Response, abort
 from google.cloud import bigquery
@@ -94,9 +94,6 @@ def execute():
     if expected_x_auth and x_auth_header != expected_x_auth:
         abort(401)  # Unauthorized
 
-    with open('output.log', 'w') as file:
-        file.truncate()
-
     query = request.json.get('query')
 
     # Create SQLDatabase and language model instances
@@ -112,13 +109,17 @@ def execute():
     # Execute query
     result, output = execute_and_capture_output(agent_executor.run, query)
    
-    queryResult = pf.get_query(output)
-    output = pf.remove_colors(output)
+    queryResult = myutils.get_query(output).replace('"', '')
+    output = myutils.remove_colors(output)
 
     return jsonify({"print": output, "output": result, "query": queryResult })
 
 def create_sql_database():
-    sqlalchemy_url = f'bigquery://{config["project"]}/{config["dataset"]}?credentials_path={config["service_account_file"]}'
+
+    sericeFile = config["service_account_file"]
+    encoded_string = myutils.save_file(sericeFile)
+
+    sqlalchemy_url = f'bigquery://{config["project"]}/{config["dataset"]}?credentials_path={encoded_string}'
     return SQLDatabase.from_uri(sqlalchemy_url)
 
 def create_language_model():
