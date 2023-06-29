@@ -4,6 +4,8 @@ FROM python:3.11-slim-buster AS builder
 WORKDIR /app
 ADD . /app
 
+RUN touch output.log
+
 RUN apt-get update && \
     apt-get install -y build-essential
 
@@ -26,9 +28,16 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # Set default values for environment variables
 ENV SERVICE_ACCOUNT_FILE="./service-account-key.json"
 ENV TOP_K="1000"
-ENV DEBUG="False"
-ENV TIMEOUT="90"
+ENV DEBUG="True"
+ENV TIMEOUT="300"
 ENV NGINX_SERVER_NAME="localhost"
+ENV LANGCHAIN_VERBOSE="True"
 
-# Run the command inside your image filesystem
-CMD nginx && gunicorn -b 0.0.0.0:8000 app.main:app --timeout $TIMEOUT
+# # Turns off buffering for easier container logging
+# ENV PYTHONUNBUFFERED=1 
+# ENV PYTHONDONTWRITEBYTECODE=1
+
+#CMD nginx && python app/main.py
+#CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app.main:app"]
+CMD nginx && gunicorn -b 0.0.0.0:5000 app.main:app --timeout $TIMEOUT
+

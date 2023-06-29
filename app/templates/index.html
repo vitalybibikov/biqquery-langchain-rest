@@ -1,0 +1,25 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-time Console Output</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Real-time Console Output</h1>
+
+    <textarea id="output" rows="30" cols="200" readonly>
+    </textarea>
+
+    <script>
+        var outputField = document.getElementById("output");
+
+        // Connect to the SSE endpoint
+        var eventSource = new EventSource("/stream");
+        
+        eventSource.onmessage = function(event) {
+            outputField.value += event.data;  // Append the received output to the input field
+        };
+    </script>
+</body>
+</html>

@@ -9,3 +9,4 @@ google-cloud-bigquery
 flask
 gunicorn
 BeautifulSoup4
+colorama
