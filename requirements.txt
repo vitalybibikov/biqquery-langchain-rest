@@ -10,3 +10,6 @@ flask
 gunicorn
 BeautifulSoup4
 colorama
+slack-bolt
+slack
+slackclient

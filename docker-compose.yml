@@ -4,11 +4,11 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./Dockerfile
     ports:
-      - "5555:5000"
-    volumes:
-      - .:/app
+      - "5555:80"
+    # volumes:
+    #   - .:/app
     restart: always
     env_file:
       - .env

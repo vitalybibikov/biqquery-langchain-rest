@@ -1,15 +1,14 @@
 # Stage 1: Build stage
 FROM python:3.11-slim-buster AS builder
 
-WORKDIR /app
-ADD . /app
+WORKDIR /build
 
-RUN touch output.log
+# Copy the application code
+COPY . .
 
 RUN apt-get update && \
     apt-get install -y build-essential
 
-# Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
 # Stage 2: Production stage
@@ -23,6 +22,7 @@ COPY --from=builder /install /usr/local
 RUN apt-get update && \
     apt-get install -y nginx
 
+COPY ./app .
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Set default values for environment variables
@@ -37,7 +37,7 @@ ENV LANGCHAIN_VERBOSE="True"
 # ENV PYTHONUNBUFFERED=1 
 # ENV PYTHONDONTWRITEBYTECODE=1
 
-#CMD nginx && python app/main.py
+CMD nginx && python app.py
 #CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app.main:app"]
-CMD nginx && gunicorn -b 0.0.0.0:5000 app.main:app --timeout $TIMEOUT
+# CMD nginx && gunicorn -b 0.0.0.0:5000 app:app -w 4 --timeout $TIMEOUT
 
