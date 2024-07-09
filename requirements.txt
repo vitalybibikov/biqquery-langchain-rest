@@ -1,4 +1,6 @@
 langchain
+langchain-community
+langchain-openai
 openai
 chromadb
 tiktoken
@@ -6,10 +8,12 @@ tabulate
 sqlalchemy
 sqlalchemy-bigquery
 google-cloud-bigquery
+google-cloud-bigquery-storage
 flask
 gunicorn
 BeautifulSoup4
 colorama
 slack-bolt
+pyarrow
 slack
 slackclient

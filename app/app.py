@@ -4,16 +4,30 @@ import io
 import utils as myutils
 import logging
 import threading
-from flask import Flask, request, jsonify, render_template, Response, abort
-from langchain.agents import create_sql_agent, AgentExecutor
-from langchain.agents.agent_toolkits import SQLDatabaseToolkit
-from langchain.llms.openai import OpenAI
-from langchain.sql_database import SQLDatabase
-from langchain.chat_models import ChatOpenAI
-
+from flask import Flask, request, jsonify, abort
+from langchain_community.agent_toolkits import create_sql_agent
+from langchain_community.utilities import SQLDatabase
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 from slack import WebClient
 from slack_bolt import App
+from langchain_community.agent_toolkits import SQLDatabaseToolkit
+from langchain_openai import ChatOpenAI
+from langchain_openai import OpenAI
+
+logging.basicConfig(level=logging.DEBUG,  # Adjust the level as needed
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# Get a logger for this module
+logger = logging.getLogger(__name__)
+
+# Add a console handler
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.DEBUG)
+console_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+logger.addHandler(console_handler)
+
+# Set up logging for langchain
+logging.getLogger("langchain").setLevel(logging.DEBUG)
 
 # Load configuration from environment variables
 def load_config():
@@ -103,6 +117,9 @@ def handle_message_events(body, logger):
     # Execute query
     result, output = execute_and_capture_output(agent_executor.run, prompt)
 
+    logger.info(output);
+    logger.info(result);
+
     queryResult = myutils.get_query(output).replace('"', '')
     output = myutils.remove_colors(output)
 
@@ -122,6 +139,7 @@ def healthcheck():
 
 
 def startapp():
+    print("Start")
     flask.run(debug=True, use_reloader=False, host='0.0.0.0')
 
 @flask.route('/challenge', methods=['POST'])
@@ -152,7 +170,7 @@ def execute():
     toolkit = SQLDatabaseToolkit(db=db, llm=llm)
 
     # Create SQL Agent Executor
-    agent_executor = create_agent_executor(llm=llm, toolkit=toolkit, verbose=config["verbose"], top_k=config["top_k"])
+    agent_executor = create_agent_executor(llm=llm, toolkit=toolkit, verbose=True, top_k=config["top_k"])
 
     # Execute query
     result, output = execute_and_capture_output(agent_executor.run, query)
@@ -178,7 +196,7 @@ def create_language_model():
         return OpenAI(temperature=temperature, model=model)
 
 def create_agent_executor(llm, toolkit, verbose, top_k):
-    return create_sql_agent(llm=llm, toolkit=toolkit, verbose=verbose, top_k=top_k)
+    return create_sql_agent(llm=llm, toolkit=toolkit, verbose=True, top_k=top_k)
 
 
 @flask.errorhandler(Exception)
